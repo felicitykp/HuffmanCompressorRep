@@ -11,7 +11,7 @@ import java.util.Set;
 public class Decompressor {
 	
 	//VARIABLES
-	public static HashMap<Character, String> codeMap = new HashMap<Character, String>();
+	public static HashMap<String, Character> codeMap = new HashMap<String, Character>();
 
 	//CONSTRUCTOR
 	public Decompressor() throws IOException{
@@ -21,7 +21,7 @@ public class Decompressor {
 			
 		for(String line = fr.readLine(); line != null; line = fr.readLine()) {	
 			String nextLine = fr.readLine();
-			codeMap.put(line.charAt(0), nextLine);
+			codeMap.put(nextLine, line.charAt(0));
 		}
 			
 		fr.close();
@@ -44,7 +44,7 @@ public class Decompressor {
 				curr = curr + "0";
 			}
 			
-			if(codeMap.containsValue(curr)) {
+			if(codeMap.containsKey(curr)) {
 				
 				fw.write(codeMap.get(curr));
 				curr = "";
