@@ -5,6 +5,7 @@ public class PriorityQueue<E> {
 	//VARIABLES
 	public ArrayList<Node<E>> queue = new ArrayList<Node<E>>();
 	
+	
 	//METHODS
 	public Node<E> pop(){
 		return queue.remove(queue.size()-1);
@@ -45,7 +46,7 @@ public class PriorityQueue<E> {
 				if(midpoint.priority > newNode.priority) {
 					start = (start+end)/2 + 1;
 				} else {
-					end = (start/end)/2;
+					end = (start+end)/2;
 				}
 			}
 			
